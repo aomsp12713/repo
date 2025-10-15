@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:padding="12dp"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView android:text="คลังอุปกรณ์ (Google Sheet)" android:textStyle="bold" android:textSize="18sp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <Button android:id="@+id/btnTabIn" android:text="รับเข้า" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        <Button android:id="@+id/btnTabOut" android:text="นำออก" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+        <Button android:id="@+id/btnTabSettings" android:text="ตั้งค่า" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <LinearLayout android:id="@+id/paneIn" android:orientation="vertical"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <Spinner android:id="@+id/in_category" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/in_name" android:hint="ชื่ออุปกรณ์" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/in_brand" android:hint="ยี่ห้อ" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/in_model" android:hint="รุ่น" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/in_sn" android:hint="SN" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/in_qty" android:hint="จำนวน" android:inputType="number" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/in_source" android:hint="ที่มา" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/in_note" android:hint="หมายเหตุ" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/in_checker" android:hint="ผู้ตรวจนับ" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/in_datetime" android:hint="วันเวลา (เว้นว่าง = ตอนนี้)" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <Button android:id="@+id/in_takePhoto" android:text="ถ่าย/เลือกภาพแนบ" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <ImageView android:id="@+id/in_preview" android:layout_width="match_parent" android:layout_height="180dp" android:scaleType="centerCrop"/>
+                <Button android:id="@+id/in_submit" android:text="บันทึกรับเข้า" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/paneOut" android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <Spinner android:id="@+id/out_category" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/out_name" android:hint="ชื่ออุปกรณ์" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/out_brand" android:hint="ยี่ห้อ" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/out_model" android:hint="รุ่น" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/out_sn" android:hint="SN" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/out_qty" android:hint="จำนวน" android:inputType="number" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/out_source" android:hint="ที่มา" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/out_note" android:hint="หมายเหตุ" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/out_by" android:hint="ผู้นำออก" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/out_datetime" android:hint="วันเวลา (เว้นว่าง = ตอนนี้)" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <TextView android:text="ลายเซ็น"/>
+                <com.stocksheet.app.SignatureView android:id="@+id/signature" android:layout_width="match_parent" android:layout_height="160dp"/>
+                <Button android:id="@+id/clearSign" android:text="ล้างลายเซ็น" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <Button android:id="@+id/out_takePhoto" android:text="ถ่าย/เลือกภาพแนบ" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <ImageView android:id="@+id/out_preview" android:layout_width="match_parent" android:layout_height="180dp" android:scaleType="centerCrop"/>
+                <Button android:id="@+id/out_submit" android:text="บันทึกนำออก" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/paneSettings" android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+                <EditText android:id="@+id/edtUrl" android:hint="วาง Web App URL จาก Apps Script" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <Button android:id="@+id/btnSaveUrl" android:text="บันทึก URL" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/edtNewCat" android:hint="เพิ่มประเภทใหม่" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <Button android:id="@+id/btnAddCat" android:text="เพิ่มประเภท" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                <TextView android:text="รายการประเภท"/>
+                <LinearLayout android:id="@+id/catList" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView android:id="@+id/txtStatus" android:text="พร้อมใช้งาน" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>
